@@ -1,0 +1,267 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed,#ec4899);
+    overflow:hidden;
+}
+
+.container{
+    display:flex;
+    height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:280px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(20px);
+    color:white;
+    padding:20px;
+    border-right:1px solid rgba(255,255,255,0.2);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.student-card{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.student-card img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    border:3px solid white;
+}
+
+.student-card h3{
+    margin-top:10px;
+}
+
+.student-card p{
+    opacity:0.8;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.menu button{
+    border:none;
+    padding:14px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.15);
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.menu button:hover{
+    background:rgba(255,255,255,0.3);
+    transform:translateX(5px);
+}
+
+/* Main Section */
+
+.main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    padding:20px;
+}
+
+/* Topbar */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(20px);
+    padding:15px 25px;
+    border-radius:15px;
+    color:white;
+}
+
+.topbar button{
+    padding:10px 15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    margin-right:10px;
+}
+
+/* Dashboard Cards */
+
+.cards{
+    display:flex;
+    gap:20px;
+    margin-top:20px;
+}
+
+.card{
+    flex:1;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(20px);
+    color:white;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card h1{
+    font-size:40px;
+}
+
+/* Chat Area */
+
+#chat-box{
+    flex:1;
+    margin-top:20px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(20px);
+    border-radius:15px;
+    padding:20px;
+    overflow-y:auto;
+}
+
+.bot-message,
+.user-message{
+    max-width:70%;
+    padding:14px 18px;
+    margin:12px 0;
+    border-radius:18px;
+    animation:fadeIn 0.3s ease;
+}
+
+.bot-message{
+    background:white;
+    color:#333;
+}
+
+.user-message{
+    background:linear-gradient(45deg,#06b6d4,#2563eb);
+    color:white;
+    margin-left:auto;
+}
+
+/* Typing Animation */
+
+.typing{
+    color:white;
+    padding:10px;
+    font-style:italic;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0.4;
+    }
+}
+
+/* Input Area */
+
+.input-area{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.input-area input{
+    flex:1;
+    padding:15px;
+    border:none;
+    border-radius:50px;
+    outline:none;
+    font-size:16px;
+}
+
+.input-area button{
+    border:none;
+    border-radius:50%;
+    width:55px;
+    height:55px;
+    font-size:22px;
+    cursor:pointer;
+    background:white;
+    transition:0.3s;
+}
+
+.input-area button:hover{
+    transform:scale(1.1);
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:white;
+    border-radius:20px;
+}
+
+/* Dark Theme */
+
+.dark{
+    background:#111827;
+}
+
+.dark .sidebar,
+.dark .topbar,
+.dark .card,
+.dark #chat-box{
+    background:rgba(0,0,0,0.4);
+}
+
+.dark .bot-message{
+    background:#1f2937;
+    color:white;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:900px){
+
+    .sidebar{
+        display:none;
+    }
+
+    .cards{
+        flex-direction:column;
+    }
+
+    .topbar h2{
+        font-size:18px;
+    }
+
+    .input-area input{
+        font-size:14px;
+    }
+}
