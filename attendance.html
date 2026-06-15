@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance</title>
+</head>
+<body>
+
+<h1>Attendance Details</h1>
+
+<h2>{{ name }}</h2>
+
+<h3>Attendance: {{ attendance }}%</h3>
+
+{% if attendance < 75 %}
+    <p style="color:red;">
+        Warning: Attendance below 75%
+    </p>
+{% else %}
+    <p style="color:green;">
+        Attendance requirement satisfied
+    </p>
+{% endif %}
+
+<br>
+
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>
