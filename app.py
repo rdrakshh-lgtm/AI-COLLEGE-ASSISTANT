@@ -8,7 +8,7 @@ import fitz
 from flask import Flask, render_template, request, redirect, session, jsonify
 from database import db, cursor
 
-genai.configure(api_key="AQ.Ab8RN6KF1FXhUPnsdtZsN0Knw0XpHn8HJkG6EQrZvX_1RHhkJw")
+genai.configure(api_key="key")
 for m in genai.list_models():
     print(m.name)
 
