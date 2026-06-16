@@ -1,0 +1,171 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            width:700px;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+            text-align:center;
+        }
+
+        h1{
+            color:#4f46e5;
+            margin-bottom:10px;
+        }
+
+        .attendance{
+            background:#eef2ff;
+            padding:15px;
+            border-radius:10px;
+            font-size:22px;
+            font-weight:bold;
+            color:#333;
+            margin-bottom:30px;
+        }
+
+        .menu{
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:20px;
+        }
+
+        .card{
+            text-decoration:none;
+            color:white;
+            padding:25px;
+            border-radius:15px;
+            font-size:20px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+        }
+
+        .chatbot{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+        }
+
+        .attendance-card{
+            background:linear-gradient(135deg,#11998e,#38ef7d);
+        }
+
+        .syllabus{
+            background:linear-gradient(135deg,#f7971e,#ffd200);
+        }
+
+        .timetable{
+            background:linear-gradient(135deg,#36d1dc,#5b86e5);
+        }
+
+        .placement{
+            background:linear-gradient(135deg,#ff512f,#dd2476);
+        }
+
+        .resume{
+            background:linear-gradient(135deg,#8e2de2,#4a00e0);
+        }
+
+        .logout{
+            background:linear-gradient(135deg,#cb2d3e,#ef473a);
+        }
+
+        .footer{
+            margin-top:30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🎓 Welcome {{ name }}</h1>
+
+    <div class="attendance">
+        📊 Attendance: {{ attendance }}%
+    </div>
+
+    <div class="menu">
+
+        <a href="/chatbot" class="card chatbot">
+            🤖 AI Chatbot
+        </a>
+
+        <a href="/attendance" class="card attendance-card">
+            📚 Attendance
+        </a>
+
+        <a href="/syllabus" class="card syllabus">
+            📖 Syllabus
+        </a>
+
+        <a href="/timetable" class="card timetable">
+            🗓 Timetable
+        </a>
+
+        <a href="/placements" class="card placement">
+            💼 Placements
+        </a>
+
+        <a href="/resume" class="card resume">
+            📄 Resume
+        </a>
+
+    </div>
+
+    <div class="footer">
+
+        <a href="/logout" class="card logout">
+            🚪 Logout
+        </a>
+
+    </div>
+    <div class="stats">
+
+    <div class="stat-card">
+        <h3>Attendance</h3>
+        <h1>{{ attendance }}%</h1>
+    </div>
+
+    <div class="stat-card">
+        <h3>Today's Classes</h3>
+        <h1>5</h1>
+    </div>
+
+    <div class="stat-card">
+        <h3>Assignments</h3>
+        <h1>3</h1>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI College Assistant</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <div class="logo">
+            🎓 AI College Assistant
+        </div>
+             
+        <div class="student-card">
+           <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+            <h3> Name</h3>
+            <p>CSE Department</p>
+        </div>
+
+        <div class="menu">
+
+    <a href="/dashboard" style="text-decoration:none;">
+        <div class="menu-card">🏠 Dashboard</div>
+    </a>
+
+    <a href="/timetable" style="text-decoration:none;">
+        <div class="menu-card">📅 Timetable</div>
+    </a>
+
+    <a href="/attendance" style="text-decoration:none;">
+        <div class="menu-card">📊 Attendance</div>
+    </a>
+
+    <a href="/syllabus" style="text-decoration:none;">
+        <div class="menu-card">📚 Syllabus</div>
+    </a>
+
+    <a href="/placements" style="text-decoration:none;">
+        <div class="menu-card">💼 Placements</div>
+    </a>
+
+</div>
+    </div>
+
+    <!-- Main Area -->
+    <div class="main">
+
+        <div class="topbar">
+            <h2>College Assistant</h2>
+
+           <div>
+    <button onclick="toggleTheme()">🌙</button>
+
+    <form id="pdfForm" enctype="multipart/form-data">
+        <input type="file" id="pdfFile" name="pdf">
+
+        <button type="button" onclick="uploadPDF()">
+            Upload PDF
+        </button>
+    </form>
+</div>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="cards">
+
+            <div class="card">
+                <h3>Attendance</h3>
+                <h1>85%</h1>
+            </div>
+
+            <div class="card">
+                <h3>Today's Classes</h3>
+                <h1>5</h1>
+            </div>
+
+            <div class="card">
+                <h3>Assignments</h3>
+                <h1>3</h1>
+            </div>
+
+        </div>
+
+        <!-- Chat -->
+        <div id="chat-box">
+
+            <div class="bot-message">
+                Hello Student 👋
+            </div>
+
+        </div>
+
+        <!-- Input -->
+        <div class="input-area">
+
+            <button onclick="startVoice()">🎤</button>
+
+            <input type="text"
+                   id="user-input"
+                   placeholder="Ask anything...">
+
+            <button onclick="sendMessage()">🚀</button>
+            <button onclick="window.location.href='/logout'">
+    🚪 Logout
+</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function toggleTheme(){
+    document.body.classList.toggle("dark");
+}
+
+function speak(text){
+
+    let speech = new SpeechSynthesisUtterance(text);
+    speech.lang="en-US";
+    speechSynthesis.speak(speech);
+
+}
+
+function startVoice(){
+
+    const recognition =
+    new webkitSpeechRecognition();
+
+    recognition.lang="en-US";
+
+    recognition.onresult=function(event){
+
+        document.getElementById("user-input").value =
+        event.results[0][0].transcript;
+
+    }
+
+    recognition.start();
+
+}
+
+async function sendMessage(){
+
+    let input =
+    document.getElementById("user-input");
+
+    let message = input.value;
+
+    if(message=="") return;
+
+    let chatBox =
+    document.getElementById("chat-box");
+
+    chatBox.innerHTML +=
+    `<div class="user-message">${message}</div>`;
+
+    input.value="";
+
+    const response =
+    await fetch('/chat',{
+
+        method:'POST',
+
+        headers:{
+            'Content-Type':'application/json'
+        },
+
+        body:JSON.stringify({
+            message:message
+        })
+
+    });
+
+    const data =
+    await response.json();
+
+    chatBox.innerHTML +=
+    `<div class="bot-message">
+        ${data.reply}
+     </div>`;
+
+    speak(data.reply);
+
+    chatBox.scrollTop =
+    chatBox.scrollHeight;
+}
+
+
+async function uploadPDF() {
+
+    let file =
+    document.getElementById("pdfFile").files[0];
+
+    if(!file){
+        alert("Please select a PDF first");
+        return;
+    }
+
+    let formData = new FormData();
+
+    formData.append("pdf", file);
+
+    const response =
+    await fetch("/upload_pdf", {
+
+        method: "POST",
+        body: formData
+
+    });
+
+    const result =
+    await response.text();
+
+    alert(result);
+}
+
+
+</script>
+
+</body>
+</html>

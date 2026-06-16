@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weekly Timetable</title>
+
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,td{
+            border:1px solid black;
+            padding:10px;
+            text-align:center;
+        }
+
+        th{
+            background:#4CAF50;
+            color:white;
+        }
+
+        h2{
+            text-align:center;
+        }
+    </style>
+
+</head>
+<body>
+
+<h2>Weekly Timetable</h2>
+
+<table>
+
+<tr>
+    <th>Day</th>
+
+    <th>P1</th>
+    <th>P1 Time</th>
+
+    <th>P2</th>
+    <th>P2 Time</th>
+
+    <th>P3</th>
+    <th>P3 Time</th>
+
+    <th>P4</th>
+    <th>P4 Time</th>
+
+    <th>P5</th>
+    <th>P5 Time</th>
+
+    <th>P6</th>
+    <th>P6 Time</th>
+
+    <th>P7</th>
+    <th>P7 Time</th>
+</tr>
+
+{% for row in timetable %}
+
+<tr>
+    <td>{{ row[0] }}</td>
+
+    <td>{{ row[1] }}</td>
+    <td>{{ row[2] }}</td>
+
+    <td>{{ row[3] }}</td>
+    <td>{{ row[4] }}</td>
+
+    <td>{{ row[5] }}</td>
+    <td>{{ row[6] }}</td>
+
+    <td>{{ row[7] }}</td>
+    <td>{{ row[8] }}</td>
+
+    <td>{{ row[9] }}</td>
+    <td>{{ row[10] }}</td>
+
+    <td>{{ row[11] }}</td>
+    <td>{{ row[12] }}</td>
+
+    <td>{{ row[13] }}</td>
+    <td>{{ row[14] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>
