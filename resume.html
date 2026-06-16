@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Upload</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            width:500px;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            color:#4f46e5;
+            margin-bottom:10px;
+        }
+
+        .subtitle{
+            color:#666;
+            margin-bottom:25px;
+        }
+
+        .upload-box{
+            border:3px dashed #4f46e5;
+            padding:40px 20px;
+            border-radius:15px;
+            background:#f5f7ff;
+            margin-bottom:25px;
+        }
+
+        .upload-box p{
+            color:#555;
+            margin-bottom:15px;
+        }
+
+        input[type="file"]{
+            padding:10px;
+            width:100%;
+        }
+
+        .upload-btn{
+            background:#10b981;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:10px;
+            font-size:16px;
+            cursor:pointer;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .upload-btn:hover{
+            background:#059669;
+            transform:translateY(-2px);
+        }
+
+        .info-card{
+            margin-top:25px;
+            background:#eef2ff;
+            padding:15px;
+            border-radius:10px;
+            color:#444;
+        }
+
+        .back-btn{
+            display:inline-block;
+            margin-top:20px;
+            text-decoration:none;
+            background:#4f46e5;
+            color:white;
+            padding:10px 20px;
+            border-radius:10px;
+            font-weight:bold;
+        }
+
+        .back-btn:hover{
+            background:#3730a3;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>📄 Resume Upload</h2>
+
+    <p class="subtitle">
+        Upload your latest resume for placement opportunities
+    </p>
+
+    <form action="/upload_resume"
+          method="POST"
+          enctype="multipart/form-data">
+
+        <div class="upload-box">
+
+            <p>📁 Choose Resume (PDF/DOC)</p>
+
+            <input type="file"
+                   name="resume"
+                   required>
+
+        </div>
+
+        <button type="submit" class="upload-btn">
+            🚀 Upload Resume
+        </button>
+
+    </form>
+
+    <div class="info-card">
+        💡 Keep your resume updated with latest skills,
+        projects and certifications.
+    </div>
+
+    <a href="/dashboard" class="back-btn">
+        ⬅ Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>
