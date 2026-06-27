@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Records</title>
+    
+
+    <style>
+
+        body{
+            font-family:Segoe UI;
+            background:#f5f7fa;
+            padding:30px;
+        }
+
+        h1{
+            text-align:center;
+            color:#4f46e5;
+            margin-bottom:30px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+        }
+
+        th,td{
+            border:1px solid #ddd;
+            padding:10px;
+            text-align:center;
+        }
+
+        th{
+            background:#4f46e5;
+            color:white;
+        }
+
+        input{
+            width:70px;
+            padding:5px;
+        }
+
+        select{
+            width:90px;
+            padding:5px;
+        }
+
+        .save-btn{
+            margin-top:20px;
+            padding:12px 25px;
+            background:#4f46e5;
+            color:white;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>🎯 Student Records</h1>
+
+<form action="/save_student_record" method="POST">
+<div style="margin-bottom:20px; text-align:center;">
+    <label><b>Student USN:</b></label>
+
+    <input
+        type="text"
+        name="student_usn"
+        placeholder="Enter USN"
+        style="width:250px; padding:8px;">
+</div>
+<table>
+
+<tr>
+    <th>Parameter</th>
+    <th>Sem1</th>
+    <th>Sem2</th>
+    <th>Sem3</th>
+    <th>Sem4</th>
+    <th>Sem5</th>
+    <th>Sem6</th>
+    <th>Sem7</th>
+    <th>Sem8</th>
+</tr>
+
+<tr>
+    <td><b>CGPA</b></td>
+
+    <td><input type="number" step="0.01" name="sem1_cgpa" required></td>
+    <td><input type="number" step="0.01" name="sem2_cgpa" required></td>
+    <td><input type="number" step="0.01" name="sem3_cgpa" required></td>
+    <td><input type="number" step="0.01" name="sem4_cgpa" required></td>
+    <td><input type="number" step="0.01" name="sem5_cgpa" required></td>
+    <td><input type="number" step="0.01" name="sem6_cgpa" required></td>
+    <td><input type="number" step="0.01" name="sem7_cgpa" required></td>
+    <td><input type="number" step="0.01" name="sem8_cgpa" required></td>
+</tr>
+
+<tr>
+    <td><b>Interactivity</b></td>
+
+    <td>
+        <select name="sem1_interactivity">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+
+    <td>
+        <select name="sem2_interactivity">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+
+    <td>
+        <select name="sem3_interactivity">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+
+    <td>
+        <select name="sem4_interactivity">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+
+    <td>
+        <select name="sem5_interactivity">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+
+    <td>
+        <select name="sem6_interactivity">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+
+    <td>
+        <select name="sem7_interactivity">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+
+    <td>
+        <select name="sem8_interactivity">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td><b>Practical Knowledge</b></td>
+    <td>
+        <select name="sem1_pk">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+    <td>
+        <select name="sem2_pk">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+    <td>
+        <select name="sem3_pk">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+    <td>
+        <select name="sem4_pk">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+    <td>
+        <select name="sem5_pk">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+    <td>
+        <select name="sem6_pk">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+    <td>       
+        <select name="sem7_pk">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+    <td>
+        <select name="sem8_pk">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td><b>Communication Skills</b></td>
+    <td>
+        <select name="sem1_cs">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+    <td>
+        <select name="sem2_cs">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+    <td>
+        <select name="sem3_cs">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+    <td>
+        <select name="sem4_cs">
+           <option>Average</option>
+           <option>Good</option>
+           <option>Very Good</option>
+           <option>Excellent</option>
+        </select>
+    </td>
+    <td>
+        <select name="sem5_cs">
+           <option>Average</option>
+           <option>Good</option>
+           <option>Very Good</option>
+           <option>Excellent</option>
+        </select>
+    </td>
+    <td>
+        <select name="sem6_cs">
+           <option>Average</option>
+           <option>Good</option>
+           <option>Very Good</option>
+           <option>Excellent</option>
+        </select>
+    </td>
+    <td>
+        <select name="sem7_cs">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+    <td>
+        <select name="sem8_cs">
+            <option>Average</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Excellent</option>
+        </select>
+    </td>
+</tr>
+
+
+
+</table>
+
+<center>
+
+
+
+<button
+    type="button"
+    onclick="predictPlacement()"
+    class="save-btn"
+    style="margin-left:15px;">
+    Calculate
+</button>
+
+</center>
+
+
+
+</form>
+
+<center>
+    <h2 id="predictionResult"></h2>
+</center>
+
+<script>
+function predictPlacement() {
+
+    var form = document.querySelector("form");
+    var formData = new FormData(form);
+
+    fetch("/predict_placement", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+
+        alert("Prediction = " + data.result);
+
+        let box = document.getElementById("predictionResult");
+
+        console.log(box);
+
+        if(box == null){
+            alert("predictionResult not found");
+            return;
+        }
+
+        box.innerHTML = "Placement Prediction : <b>" + data.result + "</b>";
+        box.style.color = "green";
+        box.style.display = "block";
+
+    })
+    .catch(error=>{
+        console.log(error);
+    });
+
+}
+</script>
+
+</body>
+</html>   
